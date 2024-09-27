@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<br>
+    <title>Shell Command Explainer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        // Function to clear the form and explanation
+        function clearForm() {
+            document.getElementById('command').value = ''; // Clear input field
+            document.getElementById('explanation').innerHTML = ''; // Clear explanation
+        }
+		
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <i class="fas fa-terminal"></i> <!-- Terminal icon -->
+            <a href="/"><b>SHELL EXPLAINER</b></a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>Shell Command Explainer</h1>
+    <form method="POST" action="/explain">
+        <label for="command">Enter Shell Command:</label><br>
+        <input type="text" id="command" name="command" placeholder="e.g. ls or cd" value="{{ command }}"><br>
+        <button type="submit">Explain</button>
+        <button type="button" onclick="clearForm()">Clear</button> <!-- Clear button with JavaScript -->
+    </form>
+
+    <!-- Explanation section -->
+    <div id="explanation">
+        {% if explanation %}
+        <h2>Explanation:</h2>
+        <p class="explanation">{{ explanation }}</p>
+        {% endif %}
+    </div>
+</body>
+<footer>
+    <p>&copy; 2024 Shell Command Explainer. All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Designed by <b>M R Gagan</b></p>
+</footer>
+</html>
